@@ -1,0 +1,11 @@
+{
+  "name": "pinshu-portfolio",
+  "version": "1.0.0",
+  "description": "Henry Ollarve's personal portfolio",
+  "author": "hollarves <henryollh205@gmail.com>",
+  "private": true,
+  "scripts": {
+    "start": "node server.prod.js",
+    "postinstall": "npm install express"
+  }
+}
