@@ -1,10 +1,9 @@
 <template>
   <div class="sidebar-nav">
-    <div class="navbar navbar-default idle" role="navigation">
+    <div @mouseover="openSideBar()" @mouseleave="closeSideBar()" :class="{ 'side-menu': !opened, 'side-menu side-menu-opened': opened }" role="navigation">
       <div id="ninja" class="ninja"></div>
       <div class="menu-content">
         <ul class="nav navbar-nav">
-          <div class="menu-container">
             <li>
               <div class="menu-item first-logo">
                 <span class="first-item"> Home </span>
@@ -30,33 +29,48 @@
                 <span class="fifth-item">Blog</span>
               </div>
             </li>
-          </div>
         </ul>
       </div>
     </div>
   </div>
 </template>
 
+<script>
+  export default {
+    name: "SideBar",
+    data() {
+      return {
+        opened: false
+      }
+    },
+    methods: {
+      openSideBar(){
+        this.opened = true
+      },
+      closeSideBar() {
+        this.opened = false
+      }
+    }
+  }
+</script>
+
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   /* make sidebar nav vertical */
   
   @media (min-width: 768px) {
-    .sidebar-nav .navbar .navbar-collapse {
-      padding: 0;
-      max-height: none;
-    }
-    .sidebar-nav .navbar ul {
+    .sidebar-nav .side-menu ul {
       float: none;
+      margin-top:40px;
     }
-    .sidebar-nav .navbar ul:not {
+    .sidebar-nav .side-menu ul:not {
       display: block;
     }
-    .sidebar-nav .navbar li {
+    .sidebar-nav .side-menu li {
       float: none;
       display: block;
     }
-    .sidebar-nav .navbar li i {
+    .sidebar-nav .side-menu li i {
       padding-top: 12px;
       padding-bottom: 12px;
       margin: 0 auto;
@@ -74,12 +88,12 @@
   }
   
   .menu-content {
-    height: 100vh;
+    height: 100%;
   }
   
   .menu-content li {
     cursor: pointer;
-    width: 100vw;
+    width: 100%;
     transition: 3s linear all;
   }
   
@@ -103,24 +117,26 @@
     background-color: #6C0BFF;
   }
   
-  .navbar.navbar-default {
+  .side-menu {
     height: 100vh;
     background-color: transparent;
-    opacity: 0.9;
     border: none;
     position: fixed;
     width: 5vw;
     overflow: hidden;
-    transition: 5s linear width;
+    transition: 3s linear all;
+    -webkit-transition: 3s linear all;
     z-index: 99999;
   }
   
-  .navbar.navbar-default:hover {
+  .side-menu.side-menu-opened {
     width: 100vw;
-    overflow: visible;
+    background-color:rgba(0,0,0,0.9);
+    transition: 3s linear all;
+    -webkit-transition: 3s linear all;
   }
   
-  .navbar.navbar-default:hover span {
+  .side-menu:hover span {
     display: block;
   }
   
@@ -131,11 +147,7 @@
   
   /* Icons */
   
-  .menu-container {
-    width: 100%;
-  }
-  
-  .menu-container span {
+  .menu-item span {
     text-align: center;
     -webkit-animation: fadein 5s;
     -moz-animation: fadein 5s;
@@ -214,7 +226,7 @@
     opacity: 1 !important;
   }
   
-  .navbar.navbar-default:hover .ninja {
+  .side-menu:hover .ninja {
     background: url('../assets/images/ninja-running-red-1.png');
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
@@ -270,4 +282,5 @@
       background-position: -420px;
     }
   }
+  
 </style>

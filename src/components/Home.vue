@@ -1,6 +1,6 @@
 <template>
-    <div class="row">
-        <div class="container-fluid">
+    <div class="container-fluid">
+        <div class="row">
             <div class="col-xs-12">
                 <app-intro></app-intro>
             </div>

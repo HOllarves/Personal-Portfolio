@@ -1,6 +1,6 @@
 <template>
     <div class="portfolio-bg">
-        <div class="p5-background">
+        <div class="p5-background col-xs-12">
             <iframe class="p5js-embedd" src="/static/p5/index.html" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="p5-content col-xs-8">
@@ -69,11 +69,12 @@
 </script>
 
 <style scoped>
+
     .portfolio-bg,
     .p5-background,
     iframe {
         height: 100vh;
-        width: 100vw;
+        width: 100%;
         position: relative;
         z-index: 0;
     }
@@ -134,6 +135,12 @@
     .disclaimer {
         color: #FFF;
         text-align: right;
+    }
+
+    /** Canvas */
+
+    canvas {
+        width: 100vw;
     }
     
     
@@ -234,4 +241,5 @@
             opacity: 0;
         }
     }
+
 </style>
