@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
-    "lint": "eslint --ext .js,.vue src"
+    "lint": "eslint --ext .js,.vue src",
+    "deploy": "npm run build && git subtree push — prefix dist heroku master"
   },
   "dependencies": {
     "vue": "^2.2.2",
@@ -50,6 +51,7 @@
     "url-loader": "^0.5.7",
     "vue-loader": "^11.1.4",
     "vue-masonry": "^0.10.1",
+    "vue-scrollto": "^2.6.7",
     "vue-strap": "github:wffranco/vue-strap",
     "vue-style-loader": "^2.0.0",
     "vue-template-compiler": "^2.2.4",

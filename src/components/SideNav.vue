@@ -1,21 +1,21 @@
 <template>
-  <div class="sidebar-nav">
-    <div @mouseover="openSideBar()" @mouseleave="closeSideBar()" :class="{ 'side-menu': !opened, 'side-menu side-menu-opened': opened }" role="navigation">
+  <div class="sidebar-nav" ref="testRef">
+    <div @mouseover="openSideBar" @mouseleave="closeSideBar" :class="{ 'side-menu': !opened, 'side-menu side-menu-opened': opened }" role="navigation">
       <div id="ninja" class="ninja"></div>
       <div class="menu-content">
         <ul class="nav navbar-nav">
             <li>
-              <div class="menu-item first-logo">
-                <span class="first-item"> Home </span>
+              <div class="menu-item first-logo" @click="goIntro">
+                  <span class="first-item"> Home </span>
               </div>
             </li>
             <li>
-              <div class="menu-item">
+              <div class="menu-item" @click="goPortfolio">
                 <span class="second-item">Portfolio</span>
               </div>
             </li>
             <li>
-              <div class="menu-item">
+              <div class="menu-item" @click="goAbout">
                 <span class="third-item"> About </span>
               </div>
             </li>
@@ -36,11 +36,16 @@
 </template>
 
 <script>
+
   export default {
     name: "SideBar",
     data() {
       return {
-        opened: false
+        opened: false,
+        options: {
+          onDone: this.closeSideBar,
+          onCancel: this.closeSideBar
+        }
       }
     },
     methods: {
@@ -49,27 +54,39 @@
       },
       closeSideBar() {
         this.opened = false
+      },
+      goIntro(){
+        this.$scrollTo(document.getElementById("intro"), 800, this.options, document.documentElement)
+      },
+      goPortfolio(){
+        this.$scrollTo(document.getElementById("portfolio"), 800, this.options, document.documentElement)
+      },
+      goAbout(){
+        this.$scrollTo(document.getElementById("about"), 800, this.options, document.documentElement)
       }
     }
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   /* make sidebar nav vertical */
   
   @media (min-width: 768px) {
+
     .sidebar-nav .side-menu ul {
       float: none;
-      margin-top:40px;
+      margin-top:10vh;
     }
+
     .sidebar-nav .side-menu ul:not {
       display: block;
     }
+
     .sidebar-nav .side-menu li {
       float: none;
       display: block;
     }
+
     .sidebar-nav .side-menu li i {
       padding-top: 12px;
       padding-bottom: 12px;
@@ -77,9 +94,10 @@
       font-size: 45px;
       transition: 2s linear all;
     }
+
   }
    
-  /* Making sidenav height 100% */
+  /* Making sidenav height 100% of the view height */
   
   .sidebar-nav {
     height: 100vh;
@@ -87,6 +105,31 @@
     left: 0;
   }
   
+  .side-menu {
+    height: 100vh;
+    background-color: transparent;
+    border: none;
+    position: fixed;
+    width: 5vw;
+    opacity: 0;
+    overflow: hidden;
+    transition: .5s linear all;
+    -webkit-transition: .5s linear all;
+    z-index: 99999;
+  }
+  
+  .side-menu.side-menu-opened {
+    width: 100vw;
+    opacity: 1;
+    background-color:rgba(0,0,0,0.9);
+    transition: 1s linear all;
+    -webkit-transition: 1s linear all;
+  }
+  
+  .side-menu:hover span {
+    display: block;
+  }
+
   .menu-content {
     height: 100%;
   }
@@ -117,33 +160,9 @@
     background-color: #6C0BFF;
   }
   
-  .side-menu {
-    height: 100vh;
-    background-color: transparent;
-    border: none;
-    position: fixed;
-    width: 5vw;
-    overflow: hidden;
-    transition: 3s linear all;
-    -webkit-transition: 3s linear all;
-    z-index: 99999;
-  }
-  
-  .side-menu.side-menu-opened {
-    width: 100vw;
-    background-color:rgba(0,0,0,0.9);
-    transition: 3s linear all;
-    -webkit-transition: 3s linear all;
-  }
-  
-  .side-menu:hover span {
-    display: block;
-  }
-  
   .portfolio-logo {
     margin-top: 10px;
   }
-  
   
   /* Icons */
   
@@ -160,8 +179,7 @@
     display: none;
     color: #FFF;
   }
-  
-  
+   
   /* Animations */
   
   @keyframes fadein {
@@ -209,7 +227,6 @@
     }
   }
   
-  
   /** Ninja */
   
   .ninja {
@@ -219,7 +236,6 @@
     transition: 20s linear left;
     float: right;
     margin-top: 50vh;
-    opacity:0;
   }
 
   .idle .ninja {

@@ -1,24 +1,26 @@
 <template>
-    <div class="portfolio-bg">
-        <div class="p5-background col-xs-12">
-            <iframe class="p5js-embedd" src="/static/p5/index.html" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="p5-content col-xs-8">
-            <div v-if="!showPortfolio" class="title" v-on:click="mouseOver()">
-                <h1>Portfolio</h1>
-                <span class="disclaimer">Whatch out... Seekers will be lurking around</span>
+    <section id="portfolio">
+        <div class="portfolio-bg">
+            <div class="p5-background col-xs-12">
+                <iframe class="p5js-embedd" src="/static/p5/index.html" frameborder="0" allowfullscreen></iframe>
             </div>
-            <div v-if="showPortfolio" class="job-container">
-                <h1>Portfolio</h1>
-                <div v-for="job in jobs">
-                    <div class="col-xs-4">
-                        <app-job-card :job="job"></app-job-card>
-                    </div>
+            <div class="p5-content col-xs-8">
+                <div v-if="!showPortfolio" class="title" @click="togglePortfolio">
+                    <h1>Portfolio</h1>
+                    <span class="disclaimer">Whatch out... Seekers will be lurking around</span>
                 </div>
-                <span class="its-ok">It's ok... they can't see you here. Click outside the box to confuse them :)</span>
+                <div v-if="showPortfolio" class="job-container">
+                    <h1>Portfolio</h1>
+                    <div v-for="job in jobs">
+                        <div class="col-xs-4">
+                            <app-job-card :job="job"></app-job-card>
+                        </div>
+                    </div>
+                    <span class="its-ok">It's ok... they can't see you here. Click outside the box to confuse them :)</span>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>
@@ -60,8 +62,7 @@
             }
         },
         methods: {
-            mouseOver: function() {
-                console.log("mouseenter");
+            togglePortfolio() {
                 this.showPortfolio = true;
             }
         }

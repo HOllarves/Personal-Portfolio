@@ -38,7 +38,7 @@ function draw() {
   if (mousePressedCounter > 20) {
     particleMode = true
     vehicleMode = true
-    text("Loving the physics.", 200, 200);
+    text("Loving the physics.", 200, 200)
   }
 
   /**
@@ -52,11 +52,7 @@ function draw() {
         let target = createVector(mouseX, mouseY)
         vehicle[i].seek(target)
         vehicle[i].update()
-        if (vehicle[i].pos === target) {
-
-        } else {
-          vehicle[i].display()
-        }
+        vehicle[i].display()
       } else {
         let target = createVector(random(width), random(height))
         vehicle[i].wander(target)
@@ -78,16 +74,15 @@ function draw() {
     for (let i = 0; i < particles.length; i++) {
       for (let j = 0; j < particles.length; j++) {
         if (i !== j) {
-          let gravitational_attraction = particles[j].calculateAttraction(particles[i]);
-          particles[i].applyForce(gravitational_attraction);
+          let gravitational_attraction = particles[j].calculateAttraction(particles[i])
+          particles[i].applyForce(gravitational_attraction)
         }
-
       }
-      let gravity = createVector(0, G * particles[i].mass);
-      particles[i].applyForce(gravity);
-      particles[i].update();
-      particles[i].edges();
-      particles[i].display();
+      let gravity = createVector(0, G * particles[i].mass)
+      particles[i].applyForce(gravity)
+      particles[i].update()
+      particles[i].edges()
+      particles[i].display()
     }
   }
 }
@@ -102,7 +97,7 @@ function createParticles() {
   for (let i = 0; i < particleNumber; i++) {
     particles[i] = new Particle(random(width), random(height), random(1, 15))
   }
-  particlesCreated = true;
+  particlesCreated = true
 }
 
 /**
@@ -115,7 +110,7 @@ function mousePressed() {
   setTimeout(() => {
     shockStatus = false
   }, shockTimer)
-  mousePressedCounter += 1;
+  mousePressedCounter += 1
 }
 
 /**

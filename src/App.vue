@@ -15,10 +15,6 @@
 
 <style>
 
-  html {
-    overflow: hidden;
-  }
-
   @font-face {
     font-family: Streamster;
     src: url('/static/fonts/Streamster.ttf');
@@ -32,7 +28,6 @@
   #app {
     height: 100vh;
     background: url('./assets/images/synth-bg.jpg') no-repeat center center;
-    overflow-x: hidden;
     background-size: cover;
     font-family: Streamster;
   }

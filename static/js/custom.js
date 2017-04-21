@@ -1,4 +1,4 @@
-$('#Intro').shuffleLetters();
+$('#intro-shuffle').shuffleLetters();
 
 $(".side-menu").bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
      $(this).removeClass("idle");

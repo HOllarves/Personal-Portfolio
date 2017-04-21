@@ -8,12 +8,14 @@ import router from './router'
 import Intro from './components/Intro'
 import SideNav from './components/SideNav'
 import Portfolio from './components/Portfolio'
+import About from './components/About'
 import Masonry from './components/Masonry'
 
 
 //Third party components
 import VueStrap from 'vue-strap'
 import VideoBg from 'vue-videobg'
+import VueScrollTo from 'vue-scrollto'
 
 Vue.config.productionTip = false
 
@@ -22,9 +24,11 @@ Vue.component('app-sidenav', SideNav)
 Vue.component('app-masonry', Masonry)
 Vue.component('app-portfolio', Portfolio)
 Vue.component('app-intro', Intro)
+Vue.component('app-about', About)
 Vue.component('video-bg', VideoBg)
 
 Vue.use(VueStrap)
+Vue.use(VueScrollTo)
 
 /* eslint-disable no-new */
 new Vue({
