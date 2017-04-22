@@ -10,6 +10,7 @@ import SideNav from './components/SideNav'
 import Portfolio from './components/Portfolio'
 import About from './components/About'
 import Masonry from './components/Masonry'
+import Terminal from './components/Terminal'
 
 
 //Third party components
@@ -25,6 +26,7 @@ Vue.component('app-masonry', Masonry)
 Vue.component('app-portfolio', Portfolio)
 Vue.component('app-intro', Intro)
 Vue.component('app-about', About)
+Vue.component('app-terminal', Terminal)
 Vue.component('video-bg', VideoBg)
 
 Vue.use(VueStrap)
@@ -36,6 +38,8 @@ new Vue({
   router,
   template: '<App/>',
   components: {
-    App, SideNav, Masonry
+    App, SideNav, Masonry,
+    Portfolio, Intro, About,
+    VideoBg
   }
 })

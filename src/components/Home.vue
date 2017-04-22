@@ -33,7 +33,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .neon-lights {
         height: 3px;
         border: none;
@@ -44,7 +44,8 @@
         background-color: #000;
     }
     .about-container {
-        background: url('../assets/images/about-bg.png') no-repeat center center;
+        background: url('../assets/images/about-bg.png');
+        background-size: cover;
+        background-repeat: no-repeat;
     }
-
 </style>
