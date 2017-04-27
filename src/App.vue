@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <app-sidenav></app-sidenav>
-    <router-view></router-view>
+    <div class="container-fluid">
+      <app-sidenav></app-sidenav>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 

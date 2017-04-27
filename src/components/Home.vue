@@ -1,21 +1,21 @@
 <template>
-    <div class="container-fluid">
+    <section id="home">
         <div class="row">
-            <div class="col-xs-12 intro-container">
+            <div class="intro-container col-xs-12">
                 <app-intro></app-intro>
             </div>
-            <div class="col-xs-12 portfolio-container">
+            <div class="portfolio-container col-xs-12">
                 <hr class="neon-lights">
                 <hr class="neon-lights">
                 <app-portfolio></app-portfolio>
             </div>
-            <div class="col-xs-12 about-container">
+            <div class="about-container col-xs-12">
                 <hr class="neon-lights">
                 <hr class="neon-lights">
                 <app-about></app-about>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>

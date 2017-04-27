@@ -9,11 +9,12 @@
                     <h1>Portfolio</h1>
                     <span class="disclaimer">Whatch out... Seekers will be lurking around</span>
                 </div>
-                <div v-if="showPortfolio" class="job-container">
+                <router-view></router-view>
+                <div v-if="showPortfolio" class="block-container">
                     <h1>Portfolio</h1>
-                    <div v-for="job in jobs">
+                    <div v-for="block in blocks">
                         <div class="col-xs-4">
-                            <app-job-card :job="job"></app-job-card>
+                            <app-block-card :block="block"></app-block-card>
                         </div>
                     </div>
                     <span class="its-ok">It's ok... they can't see you here. Click outside the box to confuse them :)</span>
@@ -25,38 +26,27 @@
 
 <script>
     import Vue from 'vue'
-    import JobCard from './JobCard.vue'
+    import BlockCard from './BlockCard.vue'
     
-    Vue.component('app-job-card', JobCard)
+    Vue.component('app-block-card', BlockCard)
     
     export default {
         name: "Portfolio",
         data() {
             return {
-                jobs: [{
-                    title: "EAD",
-                    image: "static/images/eq-logo.jpg",
-                    //image: "http://placehold.it/300x300",
-                    description: "Where it all started... My first steps into programming and also a place where I made great friends",
-                    image_description: "Equilibrio Agencia Digital's logo"
+                blocks: [{
+                    title: "Work History",
+                    description: "Wanna check all the amazing people I've worked with?",
+                    path: "portfolio/work-history"
                 }, {
-                    title: "ActiveMill",
-                    image: "static/images/active-mill-logo.png",
-                    //image: "http://placehold.it/300x300",
-                    description: "Miami based software development",
-                    image_description: "Activemill's logo"
+                    title: "Projects",
+                    description: "My own creations... my babies...",
                 }, {
-                    title: "Social Doors",
-                    image: "static/images/social-doors-logo.png",
-                    //image: "http://placehold.it/300x300",
-                    description: "One of the best startups in Buenos Aires, Argentina",
-                    image_description: "Social Doors' logo"
+                    title: "Certs",
+                    description: "I just can't have enough of these...",
                 }, {
-                    title: "Binary Mango",
-                    image: "static/images/binary-logo.png",
-                    //image: "http://placehold.it/300x300",
-                    description: "Pushing my limits as a programmer, every challenge is new",
-                    image_description: "Binary Mango's logo"
+                    title: "My Stuff",
+                    description: "Just my random stuff. :)",
                 }],
                 showPortfolio: false
             }
@@ -118,7 +108,7 @@
         text-align: right;
     }
     
-    .job-container {
+    .block-container {
         -webkit-animation: fadein 5s;
         -moz-animation: fadein 5s;
         -ms-animation: fadein 5s;
@@ -126,7 +116,7 @@
         animation: fadein 5s;
     }
     
-    .job-container h1 {
+    .block-container h1 {
         color: #FFF;
         text-align: center;
         font-family: Streamster;
