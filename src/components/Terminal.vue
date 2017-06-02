@@ -46,7 +46,8 @@
           <span>H.0 ></span>
         </div>
         <div class="col-xs-11">
-          <vue-typer style="color:#fff" text="....Communications terminated.....\n Have a good one. :)" :type-delay='70' :repeat='0' @completed="terminalHandler"></vue-typer>
+          <vue-typer style="color:#fff" text="....Communications terminated.....\n Have a good one. :)" :type-delay='70' :repeat='0'
+            @completed="terminalHandler"></vue-typer>
         </div>
       </div>
     </div>
@@ -136,4 +137,3 @@
   }
 
 </style>
-

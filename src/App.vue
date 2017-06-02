@@ -26,6 +26,11 @@
     font-family: VCR;
     src: url('/static/fonts/Vcr_OSD.ttf');
   }
+
+  @font-face {
+    font-family: AlienEncounters;
+    src: url('/static/fonts/SFAlienEncounters.ttf')
+  }
   
   #app {
     height: 100vh;
